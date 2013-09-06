@@ -6,7 +6,8 @@ module ActiveAdmin
   module Sortable
     module ControllerActions
       def sortable
-        config.sort_order = :position
+        config.sort_order = :position_asc
+        config.paginate = false
 
         member_action :sort, :method => :post do
           params[:position].to_i > 0 ? resource.insert_at(params[:position].to_i) : resource.move_to_top

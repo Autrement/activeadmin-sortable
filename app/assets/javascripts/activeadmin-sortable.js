@@ -1,4 +1,4 @@
-(function ($) {
+$(function(){
     $(document).ready(function () {
         $('.handle').closest('tbody').activeAdminSortable();
     });
@@ -32,4 +32,4 @@
 
         this.disableSelection();
     }
-})(jQuery);
+});
