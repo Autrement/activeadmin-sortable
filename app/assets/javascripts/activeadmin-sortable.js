@@ -1,3 +1,5 @@
+//= require jquery.ui.sortable
+
 $(function(){
     $(document).ready(function () {
         $('.handle').closest('tbody').activeAdminSortable();
