@@ -2,7 +2,7 @@ fr:
   active_admin:
     sortable:
       column: 'Ordre'
-      up: "Haut"
-      down: "Bas"
-      to_top: "Au début"
-      to_bottom: "A la fin"
+      up: "Monter"
+      down: "Descendre"
+      to_top: "En premier"
+      to_bottom: "En dernier"
