@@ -64,7 +64,7 @@ module ActiveAdmin
     ::ActiveAdmin::Views::TableFor.send(:include, TableMethods)
 
     class Railtie < ::Rails::Railtie
-      config.after_initialize do
+      config.to_prepare do
         require 'active_support/i18n'
         I18n.load_path += Dir[File.expand_path('../activeadmin-sortable/locales/*.yml', __FILE__)]
       end
