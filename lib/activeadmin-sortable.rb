@@ -16,22 +16,22 @@ module ActiveAdmin
 
         member_action :up do
           resource.move_higher
-          redirect_to collection_path(params.except(:controller, :action, :order))
+          redirect_to collection_path
         end
 
         member_action :down do
           resource.move_lower
-          redirect_to collection_path(params.except(:controller, :action, :order))
+          redirect_to collection_path
         end
 
         member_action :to_top do
           resource.move_to_top
-          redirect_to collection_path(params.except(:controller, :action, :order))
+          redirect_to collection_path
         end
 
         member_action :to_bottom do
           resource.move_to_bottom
-          redirect_to collection_path(params.except(:controller, :action, :order))
+          redirect_to collection_path
         end
       end
     end
