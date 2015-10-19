@@ -10,7 +10,7 @@ module ActiveAdmin
         config.paginate = false
 
         member_action :sort, :method => :post do
-          params[:position].to_i > 0 ? resource.insert_at(params[:position].to_i) : resource.move_to_top
+          params[:position].to_i > 0 ? resource.insert_at(params[:position].to_i + ((resource.position > params[:position].to_i)?1:0)) : resource.move_to_top
           head 200
         end
 
