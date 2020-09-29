@@ -49,12 +49,14 @@ module ActiveAdmin
       def sortable_actions(options = {})
         options = { name: I18n.t('active_admin.sortable.column') }.merge(options)
 
+        append_params = params.to_unsafe_hash.except(:controller, :action, :order).to_query
+
         column options[:name] do |resource|
           links = ''.html_safe
-          links << link_to(I18n.t('active_admin.sortable.to_top'), "#{resource_path(resource)}/to_top?#{params.except(:controller, :action, :order).to_query}", class: 'member_link')
-          links << link_to(I18n.t('active_admin.sortable.up'), "#{resource_path(resource)}/up?#{params.except(:controller, :action, :order).to_query}", class: 'member_link')
-          links << link_to(I18n.t('active_admin.sortable.down'), "#{resource_path(resource)}/down?#{params.except(:controller, :action, :order).to_query}", class: 'member_link')
-          links << link_to(I18n.t('active_admin.sortable.to_bottom'), "#{resource_path(resource)}/to_bottom?#{params.except(:controller, :action, :order).to_query}", class: 'member_link')
+          links << link_to(I18n.t('active_admin.sortable.to_top'), "#{resource_path(resource)}/to_top?#{append_params}", class: 'member_link')
+          links << link_to(I18n.t('active_admin.sortable.up'), "#{resource_path(resource)}/up?#{append_params}", class: 'member_link')
+          links << link_to(I18n.t('active_admin.sortable.down'), "#{resource_path(resource)}/down?#{append_params}", class: 'member_link')
+          links << link_to(I18n.t('active_admin.sortable.to_bottom'), "#{resource_path(resource)}/to_bottom?#{append_params}", class: 'member_link')
           links
         end
       end
